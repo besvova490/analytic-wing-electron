@@ -2,20 +2,26 @@
   "name": "analytic-wing-electron",
   "version": "0.1.0",
   "private": true,
+  "main": "server/electron.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.3.1",
+    "electron": "^25.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix --quiet ./",
+    "lint:ci": "eslint -f json -o eslint-report.json ./",
+    "dev": "concurrently -k \"BROWSER=none NODE_ENV=development npm start\" \"npm:electron\"",
+    "electron": "wait-on tcp:3000 && nodemon --exec electron ."
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +40,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@coax/eslint-config-fe-react": "^1.0.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.43.0",
+    "eslint-plugin-react": "^7.32.2",
+    "nodemon": "^2.0.22",
+    "sass": "^1.63.6",
+    "wait-on": "^7.0.1"
   }
 }

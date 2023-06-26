@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "@coax/eslint-config-fe-react"
+    ],
+    "parser": "@babel/eslint-parser",
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "no-prototype-builtins": "off",
+        "semi": [2, "always"],
+        "object-curly-newline": ["error", { "multiline": true }]
+    },
+    "overrides": [
+        {
+          "files": ["*.jsx", "*.js", "*.ts", "*.tsx"]
+        }
+    ]
+}
