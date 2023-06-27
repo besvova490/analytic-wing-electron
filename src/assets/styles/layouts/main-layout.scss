@@ -1,0 +1,21 @@
+.anwg-main-layout {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+
+    background-color: var(--greyscale-50, #F8FAFC);
+  }
+
+  &__page-content { padding: 32px; }
+}

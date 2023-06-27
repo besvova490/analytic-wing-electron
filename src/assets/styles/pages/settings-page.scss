@@ -1,0 +1,15 @@
+.anwg-settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .anwg-button { margin-left: auto; }
+
+  .ant-table-container {
+    padding: 24px;
+    border-start-start-radius: 16px;
+    border-start-end-radius: 16px;
+    border-radius: 16px;
+    background: var(--additional-white, #FFF);
+  }
+}

@@ -1,0 +1,72 @@
+.anwg-overview-simple-card {
+  border-radius: 12px;
+  background-color: var(--additional-white, #FFF);
+
+  padding: 18px 14px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+
+  &__icon {
+    padding: 12px;
+    border-radius: 12px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &_blue {
+      background-color: var(--primary-50);
+      color: var(--primary-600-base);
+    }
+    
+    &_pink {
+      background-color: var(--secondary-glamour-pink-50);
+      color: var(--secondary-glamour-pink-500-base);
+    }
+    
+    &_sky {
+      background-color: var(--greyscale-50);
+      color: var(--additional-sky);
+    }
+
+    &_yellow {
+      background: var(--secondary-amber-50);
+      color: var(--secondary-amber-500-base);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+
+    &__label {
+      color: var(--greyscale-500, #64748B);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 160%;
+    }
+
+    &__values {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+    }
+
+    &__value {
+      color: var(--greyscale-900);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 140%;
+      letter-spacing: 0.2px;
+    }
+  }
+}

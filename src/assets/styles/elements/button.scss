@@ -1,0 +1,18 @@
+.anwg-button {
+  height: auto;
+  padding: 12px 8px;
+
+  border-radius: 12px;
+  background: var(--primary-600-base, #2563EB);
+
+  color: var(--additional-white, #FFF) !important;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 160%;
+
+  &_default {
+    color: var(--greyscale-900, #0F172A) !important;
+    border: 1px solid var(--greyscale-200, #E2E8F0);
+    background: var(--additional-white, #FFF);
+  }
+}

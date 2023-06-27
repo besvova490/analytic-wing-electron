@@ -1,0 +1,10 @@
+.anwg-add-edit-web-app-modal {
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+
+    .anwg-error-label-provider { grid-column: 1/-1; }
+    .anwg-button { grid-column: 2/2; }
+  }
+}

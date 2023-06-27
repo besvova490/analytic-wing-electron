@@ -1,0 +1,30 @@
+.anwg-header {
+  height: 88px;
+
+  padding: 17px 32px;
+  background-color: var(--additional-white, #FFF);
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  border-left: 1px solid var(--greyscale-100);
+
+  &__title {
+    color: var(--greyscale-900, #0F172A);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 125%;
+    letter-spacing: 0.2px;
+  }
+
+  &__subtitle {
+    color: var(--greyscale-500, #64748B);
+    font-size: 12px;
+    line-height: 160%;
+  }
+
+  &__right {
+
+  }
+}

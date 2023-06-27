@@ -1,0 +1,19 @@
+.anwg-error-label-provider {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__label {
+    color: var(--greyscale-900, #0F172A);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 160%;
+  }
+
+  &__error {
+    color: var(--secondary-glamour-pink-500-base, #ED4F9D);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 160%;
+  }
+}

@@ -1,0 +1,21 @@
+.anwg-home-page {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 24px;
+  
+  &__short-overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 24px;
+
+    @media screen and (max-width: 1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    grid-gap: 24px;
+  }
+}
