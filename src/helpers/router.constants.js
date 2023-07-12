@@ -5,13 +5,13 @@ import { FiLogOut, FiSettings } from "react-icons/fi";
 
 export const ASIDE_LINKS = [
   { label: "Overview", value: "/", icon: <RxDashboard/> },
-  { label: "Analytics", value: "/analytics", icon: <TbBrandGoogleAnalytics/> },
+  { label: "Feedback", value: "/feedback", icon: <TbBrandGoogleAnalytics/> },
   { label: "Settings", value: "/settings", icon: <FiSettings/>, toBottom: true },
-  { label: "Log Out", value: "/log-out", icon: <FiLogOut/> },
+  { label: "Log Out", value: "/sign-in", icon: <FiLogOut/> },
 ];
 
 export const PAGES_TITLES = {
-  "/": { title: "Overview", subtitle: "Detailed information about your store" },
-  "/analytics": { title: "Analytics", subtitle: "Monitor progress regularly to increase sales" },
+  "/overview": { title: "Overview", subtitle: "Detailed information about your store" },
+  "/feedback": { title: "Feedbacks", subtitle: "feedback from app users" },
   "/settings": { title: "Settings", subtitle: "Manage your profile settings" },
 };

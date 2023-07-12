@@ -3,6 +3,9 @@ import { BrowserRouter } from "react-router-dom";
 // pages
 import Router from "./router/Router";
 
+// context
+import { withUserContext } from "../context/UserContext";
+
 
 function App() {
   
@@ -13,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default withUserContext(App);

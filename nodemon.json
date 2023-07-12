@@ -1,0 +1,4 @@
+{
+  "watch": ["server/index.js", "server/"],
+  "delay": "2500"
+}

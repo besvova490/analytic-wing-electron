@@ -43,11 +43,18 @@ function SignUpForm() {
 
   const onSubmit = (data) => {
     auth.register(data)
-      .then(() => navigate("/sign-in"))
+      .then(() => {
+        navigate("/sign-in");
+
+        notification.success({
+          message: "You have successfully registered.",
+          placement: "bottomLeft",
+        });
+      })
       .catch(e => {
         if (e.data.details) {
           notification.error({
-            message: "Error",
+            message: "Oops!",
             description: e.data.details,
             placement: "bottomLeft",
           });

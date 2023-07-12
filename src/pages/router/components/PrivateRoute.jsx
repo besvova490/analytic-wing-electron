@@ -2,13 +2,11 @@ import { Navigate, Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 
 //helpers
-import useUserProfile from "../../../hooks/useUserProfile";
+import { useUserContext } from "../../../context/UserContext";
 
 
 function PrivateRoute ({ redirectPath = "/sign-in" }) {
-  const { isAuthenticated } = useUserProfile();
-
-  console.log({ isAuthenticated });
+  const { isAuthenticated } = useUserContext();
 
   if (!isAuthenticated) {
     return <Navigate to={redirectPath} replace />;

@@ -50,10 +50,16 @@ function OverviewSimpleCard({ label, value, percentage }) {
       <div className="anwg-overview-simple-card__info">
         <span className="anwg-overview-simple-card__info__label">{ label }</span>
         <p className="anwg-overview-simple-card__info__values">
-          <span className="anwg-overview-simple-card__info__value">{ formatNumber(value) }</span>
-          <span className={`anwg-percentage ${percentage > 0 ? "anwg-percentage_positive" : ""}`}>
-            { `${percentage > 0 ? "+" : ""}${formatNumber(percentage)}` }%
+          <span className="anwg-overview-simple-card__info__value">
+            { value ? formatNumber(value) : "N/A" }
           </span>
+          {
+            percentage && (
+              <span className={`anwg-percentage ${percentage > 0 ? "anwg-percentage_positive" : ""}`}>
+                { `${percentage > 0 ? "+" : ""}${formatNumber(percentage)}` }%
+              </span>
+            )
+          }
         </p>
       </div>
     </div>

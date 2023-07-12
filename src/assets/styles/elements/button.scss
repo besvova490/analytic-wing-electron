@@ -10,6 +10,19 @@
   font-weight: 700;
   line-height: 160%;
 
+  &:has(.ant-btn-icon) {
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.ant-btn-dangerous {
+    background-color: #ff4d4f;
+    box-shadow: 0 2px 0 rgba(255,38,5,.06);
+  }
+
   &_default {
     color: var(--greyscale-900, #0F172A) !important;
     border: 1px solid var(--greyscale-200, #E2E8F0);

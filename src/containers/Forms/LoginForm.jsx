@@ -1,6 +1,6 @@
 import React from "react";
 import { notification } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -28,8 +28,6 @@ const validationSchema = yup.object().shape({
 });
 
 function LoginForm() {
-  const navigate = useNavigate();
-
   const { watch, setValue, setError, handleSubmit, formState: { errors } } = useForm({
     initialValues: { email: "", password: "" },
     resolver: yupResolver(validationSchema),
@@ -39,10 +37,7 @@ function LoginForm() {
 
   const onSubmit = (data) => {
     auth.login(data)
-      .then(() => {
-        navigate("/");
-        console.log("Login successful!");
-      })
+      .then(() => window.location.href = "/")
       .catch(e => {
         if (e.data.details) {
           notification.error({

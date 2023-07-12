@@ -1,5 +1,8 @@
 import axios from "axios";
 
+// helpers
+import { auth } from "./routes.constants";
+
 let authTokenRequest = null;
 
 const client = axios.create({
@@ -19,14 +22,15 @@ function getAuthToken() {
 function requestNewToken() {
   const refreshToken = localStorage.getItem("refreshToken");
 
-  return axios.post(`${process.env.REACT_APP_API_URL}/auth/refresh/`, { refresh: refreshToken }).then(res => {
+  return axios.post(`${process.env.REACT_APP_API_URL}${auth.refresh}`, { refresh: refreshToken }).then(res => {
     localStorage.setItem("accessToken", res.data.access);
     localStorage.setItem("refreshToken", res.data.refresh);
   }).catch(error => {
-    if (error.response.status === 401) {
+    if (error.response.status === 400) {
       localStorage.removeItem("accessToken"); // for cookie set from storefront
       localStorage.removeItem("refreshToken");
-      location.reload();
+
+      window.location.href = "/sign-in";
     }
   });
 }
@@ -90,5 +94,9 @@ export default request;
 
 // SWR fetcher
 export const swrFetcher = (url, config) => {
-  return client.get(`${process.env.REACT_APP_API_URL}${url}`, config).then(res => res.data);
+  return request({
+    url: `${process.env.REACT_APP_API_URL}${url}`,
+    method: "GET",
+    ...config
+  }).then(res => res);
 };

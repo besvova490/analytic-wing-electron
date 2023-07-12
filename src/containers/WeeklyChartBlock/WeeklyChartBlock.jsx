@@ -8,7 +8,7 @@ import {
   Tooltip,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
+import PropTypes from "prop-types";
 
 // components
 import InfoCard from "../../components/InfoCard";
@@ -43,29 +43,32 @@ const options = {
   },
 };
 
-const labels = ["S", "M", "T", "W", "T", "F", "S"];
+function WeeklyChartBlock({ labels, data }) {
 
-const data = {
-  labels,
-  datasets: [
-    {
-      label: "Dataset 1",
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-  ],
-};
-
-function WeeklyChartBlock() {
+  const configData = {
+    labels,
+    datasets: [
+      {
+        label: "Weekly",
+        data,
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
 
   return (
     <InfoCard
       subTitle="User Activity"
       title="10,320"
     >
-      <Bar options={options} data={data} height={null} width="100%"/>
+      <Bar options={options} data={configData} height={null} width="100%"/>
     </InfoCard>
   );
 }
+
+WeeklyChartBlock.propTypes = {
+  labels: PropTypes.array,
+  data: PropTypes.array,
+};
 
 export default WeeklyChartBlock;
