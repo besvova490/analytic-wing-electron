@@ -6,7 +6,9 @@ const {
   GET_WEB_APP_INFO, SAVE_FILE,
   UPDATE_PROGRESS_BAR,
   OPEN_FILE,
-  OPEN_IN_BROWSER
+  OPEN_IN_BROWSER,
+  FOCUS_MAIN_WINDOW,
+  DOWNLOAD_EXTENSION
 } = require("./ipcEvents/ipcEventsKeys");
 
 contextBridge.exposeInMainWorld("electronAPI", {
@@ -19,4 +21,10 @@ contextBridge.exposeInMainWorld("electronAPI", {
   updateProgressBar: (payload) => ipcRenderer.send(UPDATE_PROGRESS_BAR, payload),
   openFile: (payload) => ipcRenderer.send(OPEN_FILE, payload),
   openInBrowser: (payload) => ipcRenderer.send(OPEN_IN_BROWSER, payload),
+
+
+  focusMainWindow: () => ipcRenderer.send(FOCUS_MAIN_WINDOW),
+
+  downloadExtension: (payload) => ipcRenderer.send(DOWNLOAD_EXTENSION, payload),
+  downloadExtensionCallback: (payload) => ipcRenderer.on(DOWNLOAD_EXTENSION, payload)
 });

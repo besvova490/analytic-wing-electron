@@ -9,6 +9,7 @@ import AuthLayout from "../../layout/AuthLayout";
 const HomePage = React.lazy(() => import("../HomePage"));
 const FeedbackPage = React.lazy(() => import("../FeedbackPage"));
 const SettingsPage = React.lazy(() => import("../SettingsPage"));
+const ExtensionPage = React.lazy(() => import("../ExtensionPage"));
 const LoginPage = React.lazy(() => import("../Auth/LoginPage"));
 const SignUpPage = React.lazy(() => import("../Auth/SignUpPage"));
 
@@ -31,6 +32,7 @@ function Router() {
           <Route path="/overview/:id?" element={renderWithLayout(HomePage)}/>
           <Route path="/feedback/:id?" element={renderWithLayout(FeedbackPage)}/>
           <Route path="/settings" element={renderWithLayout(SettingsPage)}/>
+          <Route path="/extension" element={renderWithLayout(ExtensionPage)}/>
         </Route>
         <Route path="/sign-in" element={renderWithLayout(LoginPage, AuthLayout)}/>
         <Route path="/sign-up" element={renderWithLayout(SignUpPage, AuthLayout)}/>

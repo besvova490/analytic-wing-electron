@@ -1,0 +1,108 @@
+.anwg-main-layout__page-content:has(.anwg-extension-page) {
+  padding: 0;
+}
+
+.anwg-extension-page {
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  min-height: 90vh;
+  width: 100%;
+  overflow: hidden;
+
+  &__main-title {
+    color: var(--greyscale-900, #0F172A);
+    /* Heading/H3 */
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 30px */
+    letter-spacing: 0.2px;
+  }
+
+  &__main-subtitle {
+    color: var(--greyscale-500, #64748B);
+    /* body/medium/regular */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 22.4px */
+  }
+
+  &__main-promotion {
+    color: var(--secondary-glamour-pink-500-base, #ED4F9D);
+    /* body/small/medium */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%; /* 19.2px */
+  }
+
+  &__main-description {
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__main-image-wrapper {
+    height: 100%;
+    background-color: var(--primary-600-base);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.00) 100%);      
+      z-index: 1;
+
+      border-radius: 50%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.00) 100%);      
+      z-index: 2;
+
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.00) 100%);
+    }
+  }
+
+  &__main-image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+
+    position: relative;
+    z-index: 3;
+  }
+
+  @media screen and (max-width: 920px) {
+    grid-template-columns: 100%;
+    
+    .anwg-extension-page__main-description {
+      max-width: 450px;
+      margin: 0 auto;
+    }
+    .anwg-extension-page__main-image-wrapper { display: none; }
+  }
+}

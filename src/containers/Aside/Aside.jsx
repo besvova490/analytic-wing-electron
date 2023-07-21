@@ -30,7 +30,7 @@ function Aside() {
             <li key={`${index}-${item.value}`} className={`anwg-aside__navigation-item ${item.toBottom ? "anwg-aside__navigation-item_to-bottom" : ""}`}>
               <Link to={item.value} className={`anwg-aside__navigation-item-link ${location.pathname === item.value ? "anwg-aside__navigation-item-link_active" : ""}`}>
                 <span className="anwg-aside__navigation-item-icon">{ item.icon }</span>
-                {item.label}
+                <span className="anwg-aside__navigation-item-label">{item.label}</span>
               </Link>
             </li>
           ))

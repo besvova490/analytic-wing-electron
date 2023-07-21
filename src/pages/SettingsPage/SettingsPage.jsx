@@ -52,12 +52,12 @@ function SettingsPage() {
     );
   };
 
-  const handleCopyAccessToken = async (accessToken) => {
-    await navigator.clipboard.writeText(accessToken);
+  const handleCopy = async (value, message) => {
+    await navigator.clipboard.writeText(value);
 
     notification.success({
       message: "Copied!",
-      description: "Access token copied to clipboard.",
+      description: message || "Access token copied to clipboard.",
       placement: "bottomLeft",
     });
   };
@@ -108,7 +108,19 @@ function SettingsPage() {
         <Table.Column
           title="Access Token"
           dataIndex="accessToken"
-          render={row => <span onClick={() => handleCopyAccessToken(row)} className="anwg-settings-page__table-access-token">{row}</span>}
+          render={row => <span onClick={() => handleCopy(row)} className="anwg-settings-page__table-access-token">{row}</span>}
+        />
+        <Table.Column
+          title="CDN script"
+          dataIndex=""
+          render={() => (
+            <span onClick={() => handleCopy(
+              "<script src=\"https://d2n1rbeywfufu8.cloudfront.net/index.js\"></script>",
+              "CDN script copied to clipboard.",
+            )} className="anwg-settings-page__table-access-token">
+               &lt;script src="https://d2n1rbeywfufu8.cloudfront.net/index.js"&gt;&lt;/script&gt;
+            </span>
+          )}
         />
         <Table.Column
           title=""

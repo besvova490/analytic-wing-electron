@@ -78,4 +78,11 @@
       height: 100%;
     }
   }
+
+  @media screen and (max-width: 1050px) {
+    .anwg-aside__navigation-item-label,
+    .anwg-aside__header-title { display: none; }
+
+    .anwg-aside__header { justify-content: center; }
+  }
 }
