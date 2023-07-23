@@ -1,8 +1,12 @@
 {
-  "name": "analytic-wing-electron",
-  "version": "0.1.0",
+  "name": "analytic-wing-app",
+  "productName": "Analytic Wing",
+  "version": "1.0.0",
   "private": true,
-  "main": "server/electron.js",
+  "main": "public/electron.js",
+  "author": "Analytic Wing",
+  "homepage": "./",
+  "description": "Analytic Wing is a data analytics platform that helps you to analyze your data and make better decisions.",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.374.0",
     "@aws-sdk/lib-storage": "^3.374.0",
@@ -18,7 +22,6 @@
     "country-code-lookup": "^0.1.0",
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
-    "electron": "^25.2.0",
     "json2csv": "^6.0.0-alpha.2",
     "lodash": "^4.17.21",
     "path-to-regexp": "^6.2.1",
@@ -44,6 +47,7 @@
     "lint:ci": "eslint -f json -o eslint-report.json ./",
     "dev": "concurrently -k \"BROWSER=none NODE_ENV=development npm start\" \"npm:electron\"",
     "electron:dev": "wait-on tcp:3000 && nodemon --exec electron .",
+    "electron:build": "NODE_ENV=production npm run build && electron-builder -m -c.extraMetadata.main=build/electron.js",
     "electron": "wait-on tcp:3000 && electron ."
   },
   "eslintConfig": {
@@ -64,12 +68,28 @@
       "last 1 safari version"
     ]
   },
+  "build": {
+    "appId": "com.analyticwing.app",
+    "copyright": "Copyright (c) 2021",
+    "productName": "Analytic Wing",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": "dmg",
+      "icon": "public/mac-logo.icns"
+    }
+  },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
     "@coax/eslint-config-fe-react": "^1.0.0",
     "concurrently": "^8.2.0",
+    "electron": "^25.3.1",
+    "electron-builder": "^24.4.0",
     "eslint": "^8.43.0",
     "eslint-plugin-react": "^7.32.2",
     "nodemon": "^2.0.22",
