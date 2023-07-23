@@ -19,7 +19,7 @@ class MainWindow extends BrowserWindow {
     await this.loadURL(
       this.isDev
         ? "http://localhost:3000"
-        : `file:///${path.join(__dirname, "../index.html")}`
+        : `file://${path.join(__dirname, "../index.html")}`
     );
 
     this.once("ready-to-show", () => {

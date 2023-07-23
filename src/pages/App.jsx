@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
 // pages
 import Router from "./router/Router";
@@ -10,9 +10,9 @@ import { withUserContext } from "../context/UserContext";
 function App() {
   
   return (
-    <BrowserRouter>
+    <MemoryRouter>
       <Router/>
-    </BrowserRouter>
+    </MemoryRouter>
   );
 }
 

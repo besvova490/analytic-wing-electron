@@ -6,6 +6,12 @@ import MainLayout from "../../layout/MainLayout";
 import AuthLayout from "../../layout/AuthLayout";
 
 // pages
+// import HomePage from "../HomePage";
+// import FeedbackPage from "../FeedbackPage";
+// import SettingsPage from "../SettingsPage";
+// import ExtensionPage from "../ExtensionPage";
+// import LoginPage from "../Auth/LoginPage";
+// import SignUpPage from "../Auth/SignUpPage";
 const HomePage = React.lazy(() => import("../HomePage"));
 const FeedbackPage = React.lazy(() => import("../FeedbackPage"));
 const SettingsPage = React.lazy(() => import("../SettingsPage"));

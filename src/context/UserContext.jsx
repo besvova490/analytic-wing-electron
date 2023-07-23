@@ -23,6 +23,7 @@ export const useUserContext = () => {
 export function withUserContext(Component) {
   return function WrapperComponent(props) {
     const [socket, setSocket] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("accessToken"));
 
     useEffect(() => {
       const data = initSocketIo();
@@ -41,15 +42,16 @@ export function withUserContext(Component) {
       };
     }, []);
 
-    const { data, isLoading, mutate } = useUser(!!localStorage.getItem("accessToken"));
+    const { data, isLoading, mutate } = useUser(isAuthenticated);
 
     return (
       <CurrencyContext.Provider
         value={{
           user: data,
-          isAuthenticated: localStorage.getItem("accessToken") || (!isLoading && !!data),
+          isAuthenticated: isAuthenticated || (!isLoading && !!data),
           mutate,
           socket,
+          setIsAuthenticated
         }}
       >
         <Component {...props} />

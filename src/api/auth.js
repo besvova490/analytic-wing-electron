@@ -7,8 +7,6 @@ export default {
     if (resp.accessToken && resp.refreshToken) {
       localStorage.setItem("accessToken", resp.accessToken);
       localStorage.setItem("refreshToken", resp.refreshToken);
-      
-      window.dispatchEvent(new Event("storage"));
     }
 
     return resp;

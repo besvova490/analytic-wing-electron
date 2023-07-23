@@ -9,7 +9,7 @@ function PrivateRoute ({ redirectPath = "/sign-in" }) {
   const { isAuthenticated } = useUserContext();
 
   if (!isAuthenticated) {
-    return <Navigate to={redirectPath} replace />;
+    return <Navigate to={redirectPath} replace/>;
   }
 
   return <Outlet />;
