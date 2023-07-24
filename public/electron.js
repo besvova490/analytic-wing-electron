@@ -8,6 +8,7 @@ const MainWindow = require("./utils/MainWindow");
 // helpers
 const appEventsHandler = require("./helpers/appEventsHandler");
 const ipcEvents = require("./ipcEvents");
+const createMenu = require("./menu");
 const updater = require("./helpers/updater");
 
 const isDev = process.env.NODE_ENV === "development";
@@ -17,6 +18,7 @@ async function createWindow() {
   win = new MainWindow(isDev);
   await win.initialize();
 
+  createMenu(isDev, win);
   appEventsHandler(app, win);
   ipcEvents(app, win);
 

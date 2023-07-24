@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 // layouts
 import MainLayout from "../../layout/MainLayout";
@@ -30,6 +30,11 @@ const renderWithLayout = (Component, Layout = MainLayout) => (
 );
 
 function Router() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.electronAPI.navigateTo((_, payload) => navigate(payload));
+  }, []);
 
   return (
     <React.Suspense fallback="...">

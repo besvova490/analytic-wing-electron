@@ -8,7 +8,8 @@ const {
   OPEN_FILE,
   OPEN_IN_BROWSER,
   FOCUS_MAIN_WINDOW,
-  DOWNLOAD_EXTENSION
+  DOWNLOAD_EXTENSION,
+  NAVIGATE_TO
 } = require("./ipcEvents/ipcEventsKeys");
 
 contextBridge.exposeInMainWorld("electronAPI", {
@@ -24,6 +25,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 
   focusMainWindow: () => ipcRenderer.send(FOCUS_MAIN_WINDOW),
+  navigateTo: (payload) => ipcRenderer.on(NAVIGATE_TO, payload),
 
   downloadExtension: (payload) => ipcRenderer.send(DOWNLOAD_EXTENSION, payload),
   downloadExtensionCallback: (payload) => ipcRenderer.on(DOWNLOAD_EXTENSION, payload)
