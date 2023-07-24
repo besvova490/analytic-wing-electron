@@ -20,7 +20,7 @@ async function createWindow() {
   appEventsHandler(app, win);
   ipcEvents(app, win);
 
-  setTimeout(() => updater(win), 3000);
+  setTimeout(() => updater(), 3000);
 }
 
 app.whenReady().then(createWindow);

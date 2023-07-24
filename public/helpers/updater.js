@@ -7,6 +7,7 @@ autoUpdater.logger.transports.file.level = "info";
 autoUpdater.autoDownload = false;
 
 module.exports = () => {
+  log.info("App starting...");
   autoUpdater.checkForUpdates();
 
   autoUpdater.on("update-available", () => {

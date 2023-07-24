@@ -1,7 +1,7 @@
 {
   "name": "analytic-wing-app",
   "productName": "AnalyticWing",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "private": true,
   "main": "public/electron.js",
   "author": "besvova490@gmail.com",
@@ -85,7 +85,7 @@
     ],
     "mac": {
       "category": "public.app-category.developer-tools",
-      "target": "dmg",
+      "target": ["dmg", "zip"],
       "icon": "public/mac-icon.icns"
     }
   },
