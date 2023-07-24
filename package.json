@@ -1,7 +1,7 @@
 {
   "name": "analytic-wing-app",
   "productName": "AnalyticWing",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "main": "public/electron.js",
   "author": "besvova490@gmail.com",
@@ -85,7 +85,10 @@
     ],
     "mac": {
       "category": "public.app-category.developer-tools",
-      "target": ["dmg", "zip"],
+      "target": [
+        "dmg",
+        "zip"
+      ],
       "icon": "public/mac-icon.icns"
     }
   },
@@ -94,6 +97,7 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
     "@coax/eslint-config-fe-react": "^1.0.0",
+    "@electron/notarize": "^2.1.0",
     "concurrently": "^8.2.0",
     "electron": "^25.3.1",
     "electron-builder": "^24.4.0",
