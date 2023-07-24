@@ -1,10 +1,11 @@
 {
   "name": "analytic-wing-app",
   "productName": "Analytic Wing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "main": "public/electron.js",
-  "author": "Analytic Wing",
+  "author": "besvova490@gmail.com",
+  "repository": "https://github.com/besvova490/analytic-wing-electron",
   "homepage": "./",
   "description": "Analytic Wing is a data analytics platform that helps you to analyze your data and make better decisions.",
   "dependencies": {
@@ -22,6 +23,8 @@
     "country-code-lookup": "^0.1.0",
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
+    "electron-log": "^4.4.8",
+    "electron-updater": "^6.1.1",
     "json2csv": "^6.0.0-alpha.2",
     "lodash": "^4.17.21",
     "path-to-regexp": "^6.2.1",
@@ -48,7 +51,8 @@
     "dev": "concurrently -k \"BROWSER=none NODE_ENV=development npm start\" \"npm:electron\"",
     "electron:dev": "wait-on tcp:3000 && nodemon --exec electron .",
     "electron:build": "NODE_ENV=production npm run build && electron-builder -m -c.extraMetadata.main=build/electron.js",
-    "electron": "wait-on tcp:3000 && electron ."
+    "electron": "wait-on tcp:3000 && electron .",
+    "publish": "NODE_ENV=production npm run build && electron-builder -m -c.extraMetadata.main=build/electron.js --publish 'onTagOrDraft'"
   },
   "eslintConfig": {
     "extends": [
@@ -72,6 +76,9 @@
     "appId": "com.analyticwing.app",
     "copyright": "Copyright (c) 2021",
     "productName": "Analytic Wing",
+    "publish": {
+      "provider": "github"
+    },
     "files": [
       "build/**/*",
       "node_modules/**/*"

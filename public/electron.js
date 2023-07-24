@@ -8,6 +8,7 @@ const MainWindow = require("./utils/MainWindow");
 // helpers
 const appEventsHandler = require("./helpers/appEventsHandler");
 const ipcEvents = require("./ipcEvents");
+const updater = require("./helpers/updater");
 
 const isDev = process.env.NODE_ENV === "development";
 let win;
@@ -18,6 +19,8 @@ async function createWindow() {
 
   appEventsHandler(app, win);
   ipcEvents(app, win);
+
+  setTimeout(() => updater(win), 3000);
 }
 
 app.whenReady().then(createWindow);
