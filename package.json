@@ -1,7 +1,7 @@
 {
   "name": "analytic-wing-app",
-  "productName": "Analytic Wing",
-  "version": "1.0.1",
+  "productName": "AnalyticWing",
+  "version": "1.0.2",
   "private": true,
   "main": "public/electron.js",
   "author": "besvova490@gmail.com",
